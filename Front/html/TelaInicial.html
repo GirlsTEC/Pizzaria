@@ -4,47 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+   <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <nav id="navbar">
-            <i class="fa-solid fa-pizza-slice" id="nav-logo">Pizzaria La Perfetta</i>
-            <ul id="nav_list">
-                <li class="nav-item">
-                    <a href="#">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Pedidos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Carpápio</a>
-                </li>
-            </ul>
-            <button class="btn1">
-                Entre
-            </button>
-            <button id="mobile_btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </nav>
-        <div id="mobile_menu">
-            <ul id="mobile_nav_list">
-                <li class="nav-item">
-                    <a href="#">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Pedidos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Carpápio</a>
-                </li>
-            </ul>
-            <button class="btn1">
-                Entre
-            </button>
-        </div>
+    <header class="header">
+        <a class="logo" href="/"> Pizzaria La Perfeccta </a>
+        <nav class="nav">
+            <input type="checkbox" id="checkbox" class="checkbox" />
+            <label for="checkbox" class="label-menu"> Menu <span class="hamb"></span></label>
+            <ul class="menu">
+                <li> <a href="/"> Inicio </a></li>
+                <li> <a href="/"> Pedidos </a></li>
+                <li> <a href="/"> Cardápio </a></li>
+                <li> <a href="/"> Entrar </a></li>
 
+            </ul>
+        </nav>
     </header>
+    <main class="main">
+    </main>
 </body>
 </html>
