@@ -1,84 +1,276 @@
-a {
-    color: #faedd9;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-a:hover {
-    opacity: 0.7;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
-    
+  line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
-.main{
-    background: url(bts3.jpg) no-repeat center center;
-    background-size: cover;
-    height: 800px;
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-body, ul {
-    margin: 0;
-    padding: 0;
+header {
+  background-color: #970809; 
+  color: #fff;
+  padding: 20px 0;
 }
 
-.main-section {
+header .logo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #FBE8D3;
-  padding: 50px;
+  font-size: 1.5rem;
 }
 
-.menu-info {
-  max-width: 40%;
+header .logo i {
+  margin-right: 10px;
+  font-size: 2rem;
 }
 
-.menu-info .logo {
-  width: 150px;
-  margin-bottom: 20px;
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.menu-info h1 {
-  color: #333;
-  font-size: 28px;
-  margin-bottom: 20px;
+header nav ul li {
+  margin-left: 20px;
 }
 
-.menu-info p {
-  color: #666;
-  font-size: 18px;
-  margin-bottom: 30px;
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.menu-info button {
-  background-color: #1A9F60;
-  color: white;
-  border: none;
+.banner {
+  background: url('/Front/html/img/uma-pizza-deliciosa-no-estudio\ \(1\).jpg') no-repeat center center/cover;
+  height: 400px;
+  position: relative;
+}
+
+.banner .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner h2 {
+  font-size: 2.5rem;
+}
+
+.banner p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.banner .button {
+  background-color: #042608; 
+  color: #fff;
   padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
   border-radius: 5px;
 }
 
-.menu-info button:hover {
-  background-color: #158A52;
+.menu {
+  padding: 50px 0;
+  background-color: #fff;
 }
 
-.pizza-image img {
-  width: 350px;
+.menu h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card strong {
+  font-size: 1.2rem;
+}
+
+.order-button {
+  background-color: #042608;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-button:hover {
+  background-color: #031f04;
+}
+
+.delivery {
+  background-color: #FAEDD9; 
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.delivery h2 {
+  margin-bottom: 40px;
+  color: #970809; 
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.step {
+  width: 30%;
+  text-align: center;
+}
+
+.step i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #970809;
+}
+
+.step h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #970809;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #970809;
+}
+
+.delivery .button {
+  background-color: #042608; 
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.delivery .button:hover {
+  background-color: #031f04;
 }
 
 
-.footer {
-  display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #970809;
-    padding: 1rem;
-    height: 2.6875rem;
+footer {
+  background-color: #042608;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+footer .social-icons a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+
+.order-form {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.order-form h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.order-form form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.order-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.order-form textarea {
+  height: 100px;
+}
+
+.order-form button {
+  background-color: #042608; 
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.order-form button:hover {
+  background-color: #031f04;
 }

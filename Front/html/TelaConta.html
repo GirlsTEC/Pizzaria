@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,112 +14,134 @@
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            flex-direction: column;
         }
-        .box {
-            color: #000000;
-            background-color: rgba(250, 237, 217, 0.9);
-            width: 300px;
-            padding: 20px;
-            border-radius: 15px;
-        }
-        fieldset {
-            border: 3px solid #970809;
-            border-radius: 10px;
-            padding: 15px;
-        }
-        legend {
-            border: 3px solid #970809;
-            padding: 5px 15px;
-            text-align: center;
+
+        .header {
+            width: 100%;
             background-color: #970809;
-            color: white;
-            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+            font-weight: bold;
         }
-        .inputBox {
-            position: relative;
+
+        h2 {
+            text-align: center;
+            color: #970809;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .container {
+            background-color: rgba(250, 237, 217, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
-        .inputUser {
-            background: none;
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
             border: none;
-            border-bottom: 1px solid #970809;
+            border-bottom: 2px solid #970809;
+            background: none;
             outline: none;
             color: #000;
-            font-size: 15px;
-            width: 100%;
-            letter-spacing: 2px;
-            padding: 5px 0;
         }
-        .labelInput {
-            position: absolute;
-            top: 10px;
-            left: 0px;
-            pointer-events: none;
-            transition: 0.5s;
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             color: #970809;
+            font-size: 18px;
         }
-        .inputUser:focus ~ .labelInput,
-        .inputUser:valid ~ .labelInput {
-            top: -15px;
-            font-size: 12px;
-            color:  #000000;
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
         }
-        #submit {
-            background-color: #042608;
-            width: 100%;
-            border: none;
-            padding: 10px;
+
+        .btn {
+            width: 48%;
+            padding: 12px;
+            font-size: 18px;
             color: #FAEDD9;
-            font-size: 15px;
-            cursor: pointer;
+            border: none;
             border-radius: 5px;
-            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
         }
-        #submit:hover {
+
+        .btn-update {
+            background-color: #042608;
+        }
+
+        .btn-update:hover {
             background-color: #06400b;
         }
-        #submit:active {
-            background-color: #0a5c1a; 
+
+        .btn-exit {
+            background-color: #970809;
+        }
+
+        .btn-exit:hover {
+            background-color: #b00a0c;
         }
     </style>
 </head>
 <body>
-    <div class="box">
+    <div class="header">
+        Pizzaria La Perfetta
+    </div>
+
+        <h2> SUA CONTA:</h2>
+    </div>
+    <div class="container">
         <form action="">
-            <fieldset>
-                <legend><b>Sua conta</b></legend>
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome: </label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone:</label>
-                </div>
-                <div class="inputBox">
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">E-mail:</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
-                    <label for="endereco" class="labelInput">Endereço:</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="cidade" id="cidade" class="inputUser" required>
-                    <label for="cidade" class="labelInput">Cidade:</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Atualizar Senha:</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="confirmaSenha" id="confirmaSenha" class="inputUser" required>
-                    <label for="confirmaSenha" class="labelInput">Confirmar Senha:</label>
-                </div>
-                <input type="submit" value="Atualizar Dados" id="submit">
-                <input type="submit" value="Sair" id="submit">
-            </fieldset>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" name="telefone" id="telefone" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input type="text" name="cidade" id="cidade" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Atualizar Senha</label>
+                <input type="password" name="senha" id="senha" class="inputUser" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmaSenha">Confirmar Senha</label>
+                <input type="password" name="confirmaSenha" id="confirmaSenha" class="inputUser" required>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-update">Atualizar Dados</button>
+                <button type="button" class="btn btn-exit">Sair</button>
+            </div>
         </form>
     </div>
 </body>
