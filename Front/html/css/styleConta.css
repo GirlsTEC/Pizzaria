@@ -1,97 +1,249 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+} */
+
+a {
+    color: #faedd9;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+    
 }
 
-header {
-    background-color: #a60000;
-    padding: 1rem;
+body, ul {
+    margin: 0;
+    padding: 0;
 }
 
-header ul {
-    list-style: none;
+.header {
+  position: fixed;
     display: flex;
-    justify-content: space-around;
-}
-
-header ul li {
-    display: inline;
-}
-
-header ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.container {
-    background-color: #fdf2e9;
-    padding: 20px;
-    margin: 2rem auto;
-    width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #a60000;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    color: #a60000;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
+    align-items: center;
+    justify-content: space-between;
+    background: #970809;
+    padding: 1rem;
+    height: 2.6875rem;
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #006400;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    width: 48%;
-    display: inline-block;
-    text-align: center;
-}
-
-button:hover {
-    background-color: #004d00;
-}
-
-button:last-of-type {
-    background-color: #8B0000;
-}
-
-button:last-of-type:hover {
-    background-color: #600000;
+   
 }
 
 .logo {
-    text-align: center;
-    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.logo img {
-    width: 100px;
+.menu {
+    list-style: none;
+    display: flex;
+    letter-spacing: 3px;
+    gap: 0.5rem;
+}
+
+.menu a {
+    display: block;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.label-menu, .checkbox {
+    display: none;
+}
+
+#conta {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.nome input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.telefone input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.e-mail input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.endereço input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color: #faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.atualizarsenha input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color:#faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.confirmarsenha input {
+    border-radius: 15px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    padding-left: 15px;
+    background-color:#faedd9;
+    color: #970809;
+    margin-top: 15px;
+}
+
+.atualizardados input {
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #042608;
+    color: #faedd9;
+}
+
+.sair input {
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #F00000;
+    color: #faedd9;
+}
+
+
+input::placeholder {
+    color: #970809;
+}
+
+h1 {
+    color: #FAFAFA;
+}
+
+
+.caixa {
+    margin-top: 80px;
+    padding: 20px;
+    margin: 14rem auto;
+    width: 500px;
+    background-color: #970809;
+    border-radius: 20px;
+}
+
+.caixa img {
+    width: 115px;
+}
+
+input:focus {
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .menu {
+      display: block;
+      position: absolute;
+      top: 4.6875rem;
+      left: 0;
+      background: #b96b5f;
+      text-align: center;
+      width: 100%;
+      height: 0;
+      z-index: 1;
+      visibility: hidden;
+      overflow-y: hidden;
+      transition: 0.5s;
+    }
+    .menu a {
+      padding: 1rem 0;
+      margin-inline: 1rem;
+      border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.16);
+      border-radius: 0;
+    }
+    .label-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      padding: 1rem 0;
+      cursor: pointer;
+    }
+    .hamb {
+      border-top: 0.125rem solid;
+      width: 1.25rem;
+    }
+    .hamb::after,
+    .hamb::before {
+      content: " ";
+      display: block;
+      width: 1.25rem;
+      height: 0.125rem;
+      background: currentColor;
+      margin-top: 0.3125rem;
+      position: relative;
+      transition: 0.3s;
+    }
+    .checkbox:checked ~ .menu {
+      height: calc(100vh - 4.6875rem);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    .checkbox:checked ~ .label-menu .hamb {
+      border-top-color: transparent;
+    }
+    .checkbox:checked ~ .label-menu .hamb::before {
+      transform: rotate(135deg);
+    }
+    .checkbox:checked ~ .label-menu .hamb::after {
+      transform: rotate(-135deg);
+      top: -0.4375rem;
+    }
+  }
+  .botoes {
+    display: flex;
+    justify-content: space-between;
+    width: 260px; /* Ajuste a largura conforme necessário */
+    margin-top: 15px;
 }

@@ -7,47 +7,63 @@
     <link rel="stylesheet" href="/Front/html/css/styleConta.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pedidos</a></li>
-                <li><a href="#">Cardápio</a></li>
-                <li><a href="#">Minha conta</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header class="header">
+            <a class="logo" href="#"> Pizzaria La Perfectta </a>
+            <nav class="nav">
+                <input type="checkbox" id="checkbox" class="checkbox" />
+                <label for="checkbox" class="label-menu"> Menu <span class="hamb"></span></label>
+                <ul class="menu">
+                    <li> <a href="/"> Inicio </a></li>
+                    <li> <a href="/"> Pedidos </a></li>
+                    <li> <a href="/"> Cardápio </a></li>
+                    <li> <a href="/"> Entrar </a></li>
+    
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <div class="container">
-            <h2>Sua conta</h2>
-            <form id="account-form">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="Nome aqui" readonly>
-                
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone" value="(XX) XXXXX-XXXX" readonly>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" value="email@exemplo.com" readonly>
-                
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" value="Rua Exemplo, 123" readonly>
-                
-                <label for="senha">Atualizar senha:</label>
-                <input type="password" id="senha" name="senha">
-                
-                <label for="confirmarSenha">Confirmar senha:</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha">
-                
-                <button type="button" onclick="atualizarDados()">Atualizar Dados</button>
-                <button type="button" onclick="sair()">Sair</button>
-            </form>
-            <div class="logo">
-                <img src="logo.png" alt="Logo La Perfetta">
+        <div id="conta">
+
+            <div class="caixa">
+               
+                <img src="/Front/html/img/La-Perfetta.svg" alt="">
+                <h1>GERENCIAR CONTA</h1>
+    
+                <div class="nome">
+                    <input type="text" placeholder="Nome:">
+                </div>
+    
+                <div class="telefone">
+                    <input type="text" placeholder="Telefone:">
+                </div>
+
+                <div class="e-mail">
+                    <input type="text" placeholder="E-mail:">
+                </div>
+
+                <div class="endereço">
+                    <input type="text" placeholder="Endereço:">
+                </div>
+
+                <div class="atualizarsenha">
+                    <input type="text" placeholder="Atualizar senha:">
+                </div>
+
+                <div class="confirmarsenha">
+                    <input type="text" placeholder="Confirmar senha:">
+                </div>
+    
+                <div class="atualizardados">
+                    <p> Finalizar atualizações</p>
+                    <input type="submit" value="Atualizar dados">
+                </div>
+
+                <div class="sair">
+                <input type="submit" value="Sair">
             </div>
+
+            </div>
+    
         </div>
-    </main>
-    <script src="scriptConta.js"></script>
 </body>
 </html>
