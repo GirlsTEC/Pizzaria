@@ -40,6 +40,12 @@ menu.addEventListener("click", function(event){
 
 //função adicionar
 function addToCart(name, price){
+    const existingItem = cart.find(item => item.name === name)
+
+    if(existingItem){
+        existingItem.quantity += 1;
+        return;
+    }
     cart.push({
         name,
         price,
