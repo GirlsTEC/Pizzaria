@@ -1,12 +1,13 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: url('/img/Sem nome (1924 x 1099 px).jpg');
     color: #ffff;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-    text-decoration: none;
-    color:#faedd9;
+h1 {
+    color: #FAFAFA;
 }
 
 #login {
@@ -17,7 +18,7 @@ a {
     flex-direction: row;
 }
 
-.name input {
+.input-form {
     border-radius: 15px;
     border: none;
     width: 250px;
@@ -25,31 +26,32 @@ a {
     padding-left: 15px;
     background-color: #faedd9;
     color: #970809;
+}
+
+.mb-input {
     margin-bottom: 15px;
 }
 
-.email input {
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #faedd9;
-    color: #970809;
+.campoPassword {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
 }
 
-.senha input {
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color:#faedd9;
-    color: #970809;
-    margin-top: 15px;
+.passwordIcon {
+    position: absolute;
+    top: 37.5%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: url("/img/show.png");
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2;
 }
 
-.entrar input {
+.entrar {
     cursor: pointer;
     width: 120px;
     height: 40px;
@@ -60,16 +62,15 @@ a {
     
 }
 
+input:focus {
+    outline: none;
+}
+
 input::placeholder {
     color: #970809;
 }
 
-h1 {
-    color: #FAFAFA;
-}
-
 .caixa {
-    margin-top: 80px;
     padding: 20px;
     margin: 14rem auto;
     width: 500px;
@@ -79,10 +80,6 @@ h1 {
 
 .caixa img {
     width: 115px;
-}
-
-input:focus {
-    outline: none;
 }
 
 @media (max-width: 600px) {

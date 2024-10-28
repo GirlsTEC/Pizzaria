@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="/css/styleLoginCadastro.css" rel="stylesheet">
+    <link href="/css/styleGeral.css" rel="stylesheet">
+    <title>La Perfectta</title>
+</head>
+
+<body>
+<header class="header">
+    <a class="logo" href="/"> Pizzaria La Perfectta </a>
+    <nav class="nav">
+        <input class="checkbox" id="checkbox" type="checkbox"/>
+        <label class="label-menu" for="checkbox"> Menu <span class="hamb"></span></label>
+        <ul class="menu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/menu">Cardápio</a></li>
+            <li><a href="/login">Entrar</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="login">
+    <div class="caixa">
+        <img alt="logo" src="/img/La-Perfetta.svg">
+        <h1>CRIAR CONTA</h1>
+        <form id="addCliente">
+            <input class="input-form mb-input" name="nome" placeholder="Nome" type="text"/>
+
+            <input class="input-form mb-input" name="email" placeholder="E-mail" type="email"/>
+            <div class="campoPassword">
+                <input class="input-form mb-input" id="senha" name="senha" placeholder="Senha" type="password"/>
+                <div class="passwordIcon" onClick="alternarExibicao()"></div>
+            </div>
+
+            <input class="input-form mb-input" id="confirmaSenha" placeholder="Confirme a sua senha" type="password">
+
+            <input class="input-form mb-input" name="endereco" placeholder="Endereço" type="text">
+            <input class="input-form" name="telefone" placeholder="Telefone: 11987659582" type="text">
+
+            <div>
+                <p>Já tem uma conta? <a href="/login">Entre aqui.</a></p>
+                <input class="entrar" type="submit" value="Entrar">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="/js/scriptCadastro.js"></script>
+</html>
