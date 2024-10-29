@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const errorHandler = require('./middleware/errorHandler')
+
 
 let app = express();
 let publicPath = path.join(__dirname, './public');
@@ -7,6 +9,7 @@ let port = 8080;
 
 app.use(express.json());
 app.use(express.static(publicPath));
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
     res.status(200).sendFile(path.resolve(publicPath, './html/TelaInicial.html'));
