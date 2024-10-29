@@ -1,11 +1,13 @@
 const express = require('express');
 const path = require('path');
+const dotenv = require('dotenv');
 const errorHandler = require('./middleware/errorHandler')
 
+dotenv.config();
 
 let app = express();
 let publicPath = path.join(__dirname, './public');
-let port = 8080;
+let port = process.env.PORT;
 
 app.use(express.json());
 app.use(express.static(publicPath));
