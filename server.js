@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const errorHandler = require('./middleware/errorHandler')
 
@@ -11,6 +12,7 @@ let port = process.env.PORT;
 
 app.use(express.json());
 app.use(express.static(publicPath));
+app.use(cookieParser());
 app.use(errorHandler);
 
 app.get('/', (req, res) => {
@@ -28,6 +30,8 @@ app.get('/menu', (req, res) => {
 app.get('/perfil', (req, res) => {
     res.status(200).sendFile(path.resolve(publicPath, './html/TelaConta.html'));
 });
+
+app.use('/api/cliente/', require('./routes/clienteRoute.js'));
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
