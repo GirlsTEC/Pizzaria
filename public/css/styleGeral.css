@@ -28,6 +28,15 @@ a:hover {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    margin-left: 1rem;
+}
+
+.nav {
+    margin-right: 1rem;
+}
+
+.label-menu, .checkbox {
+    display: none;
 }
 
 .menu {
@@ -40,12 +49,9 @@ a:hover {
 
 .menu a {
     display: block;
+    font-weight: 500;
     padding: 1rem;
     border-radius: 0.5rem;
-}
-
-.label-menu, .checkbox {
-    display: none;
 }
 
 @media (max-width: 600px) {
