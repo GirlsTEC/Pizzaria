@@ -14,10 +14,10 @@ function alternarExibicao() {
     }
 }
 
-const formUsuario = document.querySelector('#addCliente')
+const formCadastro = document.querySelector('#addCliente')
 
 // Adiciona evento de 'submit' ao formulário
-formUsuario.addEventListener('submit', (event) => {
+formCadastro.addEventListener('submit', (event) => {
     event.preventDefault()
     const data = Object.fromEntries(new FormData(event.target).entries());
 
