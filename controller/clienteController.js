@@ -66,7 +66,7 @@ const loginCliente = (req, res) => {
                 id: results.rows[0].id,
             };
             const accessToken = criaAccessToken(user)
-            const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN);
+            const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN, {expiresIn: '1d'});
 
             pool.query(queries.updateRefreshToken, [refreshToken, email], (error, results) => {
                 if (error) return res.status(500).send("Erro ao adicionar refresh token");
@@ -81,27 +81,42 @@ const loginCliente = (req, res) => {
 }
 
 const logoutCliente = (req, res) => {
-    const {email} = req.body;
+    const email = req.user.email;
     pool.query(queries.updateRefreshToken, [null, email], (err, results) => {
         if(err) return res.status(500).send("Erro ao logout cliente");
-        return res.status(200).send("Cliente fez log-off");
+        return res.status(200).clearCookie('refreshToken').send("Cliente fez log-off");
     });
 }
 
 const refreshLogin = (req, res) => {
     const { refreshToken } = req.cookies;
-    if(!refreshToken) return res.status(401).send("Token não existe");
+    if(!refreshToken) return res.status(401).send({message: "Token não existe"});
 
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN, (err, user) => {
-        if(err) return res.status(403).send("Token não válido");
+        if(err) return res.status(403).send({message: "Token não válido"});
 
         const accessToken = criaAccessToken(user);
         return res.status(200).json({ token: accessToken });
     })
 }
 
+const validateToken = (req, res) => {
+    let token;
+    let authHeader = req.headers.Authorization || req.headers.authorization;
+    if(authHeader && authHeader.startsWith("Bearer")) {
+        token = authHeader.split(" ")[1];
+        if(!token) return res.status(401).send("Cliente não autorizado ou token está vazio");
+        jwt.verify(token, process.env.ACCESS_TOKEN, (err) => {
+            if (err) {
+                return res.status(401).send({message: "Cliente não autorizado"});
+            }
+            return res.status(200).send({message: 'Token autorizado'});
+        });
+    }
+}
+
 const criaAccessToken = (user) => {
-    return jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: "5m"})
+    return jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn: "20m"})
 }
 
 module.exports = {
@@ -111,4 +126,5 @@ module.exports = {
     loginCliente,
     logoutCliente,
     refreshLogin,
+    validateToken,
 }

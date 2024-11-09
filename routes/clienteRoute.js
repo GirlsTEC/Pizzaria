@@ -5,10 +5,10 @@ const router = Router();
 
 router.get('/', controller.getAllClientes);
 router.get('/search/:id', controller.getClienteById);
-router.get('/refresh', controller.refreshLogin);
-router.get('/validate', validateToken);
-router.post('/create',  controller.createCliente);
+router.get('/refresh', validateToken, controller.refreshLogin);
+router.get('/validate', controller.validateToken);
+router.post('/create', controller.createCliente);
 router.post('/login',  controller.loginCliente);
-router.delete('/logout', controller.logoutCliente)
+router.put('/logout', validateToken, controller.logoutCliente)
 
 module.exports = router;
