@@ -1,3 +1,36 @@
 header{
     background-color: #970809;
 }
+
+.cart-item{
+    border-radius: 1rem;
+    border: 1px solid rgb(209, 213, 219);
+}
+
+.mid button {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0;
+    background-color: white;
+    color: gray;
+}
+
+.mid p {
+    padding: 0.3rem 0.5rem;
+    background-color: rgb(203, 203, 203);
+    border-radius: 0.3rem;
+    margin: 0 0.5rem;
+}
+
+.cart-detail button {
+    background-color: gray;
+    color: rgb(60, 60, 60);
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    margin: 0.6rem;
+    transition: 0.1s ease-in-out;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
