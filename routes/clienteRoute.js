@@ -5,8 +5,8 @@ const router = Router();
 
 router.get('/', controller.getAllClientes);
 router.get('/search/:id', controller.getClienteById);
-router.get('/refresh', validateToken, controller.refreshLogin);
 router.get('/search', controller.getClienteByToken);
+router.get('/refresh', controller.refreshLogin);
 router.get('/validate', controller.validateToken);
 router.post('/create', controller.createCliente);
 router.post('/login',  controller.loginCliente);
