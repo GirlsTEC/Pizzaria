@@ -10,12 +10,13 @@ const validateToken = (req, res, next) => {
             if (err) {
                 return res.status(401).send({message: "Cliente não autorizado"});
             }
-            console.log(decoded);
+
             req.user = decoded;
             next();
         });
+    } else {
+        return res.status(404).send({message: 'Token Inexistente'});
     }
-    return res.status(404).send({message: 'Token Inexistente'})
 }
 
 module.exports = validateToken;
