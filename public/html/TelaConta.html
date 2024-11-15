@@ -2,64 +2,65 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styleConta.css">
-    <link rel="stylesheet" href="/css/styleGeral.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/css/styleConta.css" rel="stylesheet">
+    <link href="/css/styleGeral.css" rel="stylesheet">
     <title>La Perfectta</title>
     <script src="/js/scriptRotasLogadas.js"></script>
 </head>
 <body>
-        <header class="header">
-            <a class="logo" href="/"> Pizzaria La Perfectta </a>
-            <nav class="nav">
-                <input type="checkbox" id="checkbox" class="checkbox" />
-                <label for="checkbox" class="label-menu"> Menu <span class="hamb"></span></label>
-                <ul class="menu">
-                    <li> <a href="/"> Inicio </a></li>
-                    <li> <a href="/menu"> Cardápio </a></li>
-                    <li> <a href="/perfil"> Perfil </a></li>
-                </ul>
-            </nav>
-        </header>
+<header class="header">
+    <a class="logo" href="/"> Pizzaria La Perfectta </a>
+    <nav class="nav">
+        <input class="checkbox" id="checkbox" type="checkbox"/>
+        <label class="label-menu" for="checkbox"> Menu <span class="hamb"></span></label>
+        <ul class="menu">
+            <li><a href="/"> Inicio </a></li>
+            <li><a href="/menu"> Cardápio </a></li>
+            <li><a href="/perfil"> Perfil </a></li>
+        </ul>
+    </nav>
+</header>
 
-        <div id="conta">
+<div id="conta">
+    <form id="atualizaCliente">
+        <div class="caixa">
+            <img alt="" src="/img/La-Perfetta.svg">
+            <h1>GERENCIAR CONTA</h1>
 
-            <div class="caixa">
-               
-                <img src="/img/La-Perfetta.svg" alt="">
-                <h1>GERENCIAR CONTA</h1>
-    
-                <div class="nome">
-                    <input type="text" placeholder="Nome:">
-                </div>
-    
-                <div class="telefone">
-                    <input type="text" placeholder="Telefone:">
-                </div>
-
-                <div class="e-mail">
-                    <input type="text" placeholder="E-mail:">
-                </div>
-
-                <div class="endereço">
-                    <input type="text" placeholder="Endereço:">
-                </div>
-
-                <div class="atualizarsenha">
-                    <input type="text" placeholder="Atualizar senha:">
-                </div>
-
-                <div class="confirmarsenha">
-                    <input type="text" placeholder="Confirmar senha:">
-                </div>
-    
-                <div class="atualizardados">
-                    <input type="submit" id="atualizar" value="Atualizar dados">
-                    <input type="submit" id="sair" value="Sair">
+            <div class="divForm">
+                <label for="nome">Nome:</label>
+                <input class="input-form" id="nome" name="nome" placeholder="Nome:" type="text">
             </div>
 
-        
-    
+            <div class="divForm">
+                <label for="telefone">Telefone:</label>
+                <input class="input-form" id="telefone" name="telefone" placeholder="Telefone:" type="text">
+            </div>
+
+            <div class="divForm">
+                <label for="endereco">Endereço:</label>
+                <input class="input-form" id="endereco" name="endereco" placeholder="Endereço:" type="text">
+            </div>
+
+            <div class="divForm">
+                <label for="senha">Senha:</label>
+                <input class="input-form" id="senha" name="senha" placeholder="Atualizar Senha:" type="text">
+            </div>
+
+            <div class="divForm">
+                <label for="confirmaSenha">Confirmar Senha:</label>
+                <input class="input-form" id="confirmaSenha" name="confirmaSenha" placeholder="Confirmar Senha:"
+                       type="text">
+            </div>
+
+            <div class="atualizardados">
+                <input id="atualizar" type="submit" value="Atualizar dados">
+                <input id="sair" type="button" value="Sair">
+            </div>
         </div>
+    </form>
+</div>
+<script src="/js/scriptConta.js" type="module"></script>
 </body>
 </html>
