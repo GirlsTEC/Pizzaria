@@ -23,6 +23,23 @@ const getClienteById = (req, res) => {
     })
 };
 
+const getClienteByToken = (req, res) => {
+    const {refreshToken} = req.cookies;
+
+    pool.query(queries.getClienteByToken, [refreshToken], (error, results) => {
+        if (error) return res.status(500).send({message: 'Erro ao achar o Cliente'});
+        if (!results.rows.length) return res.status(404).send({message: 'Cliente não encontrado'});
+        console.log("Pegou cliente");
+        const user = {
+            nome: results.rows[0].nome,
+            email: results.rows[0].email,
+            telefone: results.rows[0].telefone,
+            endereco: results.rows[0].endereco,
+        };
+        return res.status(200).send(user);
+    })
+};
+
 const createCliente = (req, res) => {
     const {nome, senha, email, telefone, endereco} = req.body;
 
@@ -48,6 +65,46 @@ const createCliente = (req, res) => {
         });
     })
 };
+
+const updateCliente = (req, res) => {
+    const { nome, senha, telefone, endereco } = req.body;
+    const { email } = req.user;
+    let query = "UPDATE Cliente SET";
+
+    pool.query(queries.getClienteByEmail, [email], (error, results) => {
+        if (error) return res.status(500).send({message: 'Erro ao achar o Cliente'});
+        if (!results.rows.length) return res.status(404).send({message: 'Cliente não encontrado'});
+        let count = 0
+
+        const user = results.rows[0];
+        if (nome !== user.nome && nome !== "") {
+            ++count;
+            query = query.concat(" nome = '", nome, "',");
+        }
+        if (senha !== user.senha && senha !== "") {
+            ++count;
+            query = query.concat(" senha = '", senha, "',");
+        }
+        if (telefone !== user.telefone && telefone !== "") {
+            ++count;
+            query = query.concat(" telefone = '", telefone, "',");
+        }
+        if (endereco !== user.endereco && endereco !== "") {
+            ++count;
+            query = query.concat(" endereco = '", endereco, "'");
+        }
+        if(query.endsWith(',')) query = query.slice(0, -1);
+        query = query.concat(" WHERE email = '", email, "';");
+        console.log(query);
+        console.log(queries.getClienteByEmail);
+        if (!count) return res.status(400).send({message: 'Não há necessidade de atualizar'});
+        pool.query(query, (error, results) => {
+            if (error) return res.status(500).send({message: 'Erro ao atualizar o Cliente'});
+
+            return res.status(201).send({message: 'Cliente atualizado com sucesso'})
+        })
+    })
+}
 
 const loginCliente = (req, res) => {
     const {email, senha} = req.body;
@@ -124,8 +181,10 @@ module.exports = {
     createCliente,
     getAllClientes,
     getClienteById,
+    getClienteByToken,
     loginCliente,
     logoutCliente,
     refreshLogin,
     validateToken,
+    updateCliente,
 }
