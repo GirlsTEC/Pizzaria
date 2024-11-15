@@ -1,7 +1,6 @@
 // Função para acessar as rotas
 document.addEventListener("DOMContentLoaded", async function accessProtectedRoute() {
     const accessToken = localStorage.getItem('accessToken');
-    if(!accessToken && location.pathname !== '/login') location.pathname = '/login';
     const response = await fetch('http://localhost:8080/api/cliente/validate', {
         method: 'GET',
         headers: {

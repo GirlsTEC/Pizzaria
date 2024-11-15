@@ -16,23 +16,25 @@ document.addEventListener("DOMContentLoaded", async function HeaderFix() {
         // Tentar renovar o accessToken se o token tiver expirado
         await refreshAccessToken();
     }
-    if(logged){
+    if (logged) {
         const list = document.getElementById('menu');
-        list.removeChild(list.lastElementChild);
-        list.removeChild(list.lastElementChild);
-        list.insertAdjacentHTML('beforeend', '<li><a href="/perfil">Perfil</a></li>');
-        list.insertAdjacentHTML('beforeend', '<li><a id="logOut">Log-Out</a></li>');
+        if (list) {
+            list.removeChild(list.lastElementChild);
+            list.removeChild(list.lastElementChild);
+            list.insertAdjacentHTML('beforeend', '<li><a href="/perfil">Perfil</a></li>');
+            list.insertAdjacentHTML('beforeend', '<li><a id="logOut">Log-Out</a></li>');
 
-        const logOut = document.getElementById('logOut');
-        logOut.style.cursor = 'pointer';
-        logOut.addEventListener('click', async function(event) {
-            event.preventDefault();  // Impede o comportamento padrão de navegação
-            await logOutButtonListener();
-        });
+            const logOut = document.getElementById('logOut');
+            logOut.style.cursor = 'pointer';
+            logOut.addEventListener('click', async function (event) {
+                event.preventDefault();  // Impede o comportamento padrão de navegação
+                await logOutButtonListener();
+            });
+        }
     }
 })
 
-async function logOutButtonListener() {
+export async function logOutButtonListener() {
     const accessToken = localStorage.getItem('accessToken');
     const response = await fetch('http://localhost:8080/api/cliente/logout', {
         method: 'PUT',
@@ -40,6 +42,16 @@ async function logOutButtonListener() {
             'Authorization': `Bearer ${accessToken}`,
         },
     });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        localStorage.clear();
+        location.reload();
+        console.log(data.message)
+    } else {
+        console.log("Falha: ", data.message);
+    }
 }
 
 // Função para obter um novo accessToken usando o refreshToken
@@ -54,7 +66,7 @@ async function refreshAccessToken() {
     if (response.ok) {
         logged = true;
         localStorage.setItem('accessToken', data.token);
-    } else{
+    } else {
         logged = false;
     }
 }
