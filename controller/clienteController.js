@@ -83,7 +83,8 @@ const updateCliente = (req, res) => {
         }
         if (senha !== user.senha && senha !== '') {
             ++count;
-            query = query.concat(" senha = '", senha, "',");
+            const hash = bcrypt.hashSync(senha, 10);
+            query = query.concat(" senha = '",  hash, "',");
         }
         if (telefone !== user.telefone && telefone !== '') {
             ++count;
@@ -117,13 +118,9 @@ const loginCliente = (req, res) => {
             let user = results.rows[0];
             const hash = bcrypt.compareSync(senha, user.senha)
             if (!user || !hash) return res.status(401).send({message: 'Email ou Senha não é válida'});
-            user = {
-                username: results.rows[0].nome,
-                email: results.rows[0].email,
-                id: results.rows[0].id,
-            };
+
             const accessToken = criaAccessToken(user)
-            const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN, {expiresIn: '1d'});
+            const refreshToken = jwt.sign({email: results.rows[0].email}, process.env.REFRESH_TOKEN, {expiresIn: '1d'});
 
             pool.query(queries.updateRefreshToken, [refreshToken, email], (error, results) => {
                 if (error) return res.status(500).send({message: 'Erro ao adicionar refresh token'});

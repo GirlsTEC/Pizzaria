@@ -13,12 +13,13 @@ formLogin.addEventListener('submit', async (event) => {
         body: JSON.stringify(formData),
     });
 
-    const resData = await response.json();
+    const data = await response.json();
     if (response.ok) {
-        console.log('Acesso concedido:', resData.token);
-        localStorage.setItem('accessToken', resData.token);
+        console.log('Acesso concedido:', data.token);
+        localStorage.setItem('accessToken', data.token);
         location.replace('/perfil');
     } else {
-        console.error('Erro de login:', resData.message);
+        alert('Usuário inexistente');
+        console.error('Erro de login:', data.message);
     }
 });

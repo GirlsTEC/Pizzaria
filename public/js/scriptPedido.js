@@ -6,8 +6,6 @@ const cartTotal = document.getElementById("cart-total")
 const checkoutBtn = document.getElementById("checkout-btn")
 const closeModalBtn = document.getElementById("close-modal")
 const cartCounter = document.getElementById("cart-count")
-const addressInput = document.getElementById("address")
-const addressWarn = document.getElementById("address-warn")
 
 let cart = [];
 //abrir carrinho
@@ -25,6 +23,11 @@ cartModal.addEventListener("click", function (event) {
 //botao de fechar
 closeModalBtn.addEventListener("click", function (event) {
     cartModal.style.display = "none"
+})
+
+checkoutBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    alert('Compra Finalizada, Valor Final de ' + cartTotal.innerText);
 })
 
 //botao para adicionar no carrinho
