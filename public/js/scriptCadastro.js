@@ -20,7 +20,8 @@ const formCadastro = document.querySelector('#addCliente')
 formCadastro.addEventListener('submit', (event) => {
     event.preventDefault()
     const data = Object.fromEntries(new FormData(event.target).entries());
-
+    
+    if(!data.nome || !data.email || !data.senha || !data.confirmaSenha || !data.endereco || !data.telefone) return alert('Preencha Todos os Campos!');;
     if (data.senha === data.confirmaSenha && data.senha !== "") {
         fetch('http://localhost:8080/api/cliente/create', {
             method: 'POST',
